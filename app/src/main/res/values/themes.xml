@@ -22,4 +22,9 @@
     <style name="Theme.Guest.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.Guest.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+  <!-- Base application theme. -->
+    <style name="Base.Theme.Guest" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
 </resources>
