@@ -37,4 +37,25 @@ class GuestRepository private constructor(context: Context){
             false
         }
     }
+
+    fun update(model: GuestModel): Boolean {
+        return try {
+            val db = guestDataBase.writableDatabase
+            val values = ContentValues()
+
+            val presence = if (model.presence) 1 else 0
+
+            values.put(DataBaseConstants.GUEST.COLUMN.NAME, model.name)
+            values.put(DataBaseConstants.GUEST.COLUMN.PRESENCE, presence)
+
+            val selection = DataBaseConstants.GUEST.COLUMN.ID + " = ?"
+            val args = arrayOf(model.id.toString())
+
+            db.update(DataBaseConstants.GUEST.TABLE_NAME, values, selection, args)
+
+            true
+        } catch (e: Exception) {
+            false
+        }
+    }
 }
