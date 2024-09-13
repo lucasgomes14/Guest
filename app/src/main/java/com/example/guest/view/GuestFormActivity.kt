@@ -34,6 +34,7 @@ class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
             val presence = binding.radioPresent.isChecked
 
             viewmodel.insert(GuestModel(0, name, presence))
+            finish()
         }
     }
 }
