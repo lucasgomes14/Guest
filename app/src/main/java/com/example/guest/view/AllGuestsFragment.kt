@@ -5,11 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.guest.databinding.FragmentAllGuestsBinding
 import com.example.guest.view.adapter.GuestAdapter
+import com.example.guest.view.listener.OnGuestListener
 import com.example.guest.viewmodel.AllGuestsViewModel
 
 class AllGuestsFragment : Fragment() {
@@ -30,6 +30,19 @@ class AllGuestsFragment : Fragment() {
 
         // definir adapter
         binding.recyclerAllGuests.adapter = adapter
+
+        val listener = object : OnGuestListener {
+            override fun onClick(id: Int) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onDelete(id: Int) {
+                TODO("Not yet implemented")
+            }
+
+        }
+
+        adapter.attachListener(listener)
 
         observe()
 
