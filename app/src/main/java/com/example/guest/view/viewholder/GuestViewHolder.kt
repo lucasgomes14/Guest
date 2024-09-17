@@ -13,5 +13,10 @@ class GuestViewHolder(private val item: RowGuestBinding, private val listener: O
         item.textName.setOnClickListener {
             listener.onClick(guest.id)
         }
+
+        item.textName.setOnLongClickListener {
+            listener.onDelete(guest.id)
+            true
+        }
     }
 }

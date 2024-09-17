@@ -62,7 +62,7 @@ class GuestRepository private constructor(context: Context) {
     fun delete(id: Int): Boolean {
         return try {
             val db = guestDataBase.writableDatabase
-            val selection = DataBaseConstants.GUEST.ID + " = ?"
+            val selection = DataBaseConstants.GUEST.COLUMN.ID + " = ?"
             val args = arrayOf(id.toString())
 
             db.delete(DataBaseConstants.GUEST.TABLE_NAME, selection, args)
