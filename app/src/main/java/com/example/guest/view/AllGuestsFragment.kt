@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,7 +12,7 @@ import com.example.guest.constants.DataBaseConstants
 import com.example.guest.databinding.FragmentAllGuestsBinding
 import com.example.guest.view.adapter.GuestAdapter
 import com.example.guest.view.listener.OnGuestListener
-import com.example.guest.viewmodel.AllGuestsViewModel
+import com.example.guest.viewmodel.GuestsViewModel
 
 class AllGuestsFragment : Fragment() {
 
@@ -21,14 +20,14 @@ class AllGuestsFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val adapter = GuestAdapter()
-    private lateinit var viewModel: AllGuestsViewModel
+    private lateinit var viewModel: GuestsViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, b: Bundle?): View {
-        viewModel = ViewModelProvider(this).get(AllGuestsViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(GuestsViewModel::class.java)
 
         _binding = FragmentAllGuestsBinding.inflate(inflater, container, false)
 
-        // layout como se comporta
+        // como layout se comporta
         binding.recyclerAllGuests.layoutManager = LinearLayoutManager(context)
 
         // definir adapter
@@ -48,7 +47,6 @@ class AllGuestsFragment : Fragment() {
                 viewModel.delete(id)
                 viewModel.getAll()
             }
-
         }
 
         adapter.attachListener(listener)
